@@ -53,6 +53,6 @@ while going != "stop":
             print(x, end = " ")
         print()
     #this asks the user if they want to continue or stop playing the game
-    going = input('Enter "go" to keep playing, enter "stop" to stop playing ' ).replace(" ", "")
+    going = input('Enter "go" to keep playing, enter "stop" to stop playing: ' ).replace(" ", "")
 print("\nThanks for playing!")
 print()
