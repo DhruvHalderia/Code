@@ -1,2 +1,2 @@
-for i in range(100):
-    print("Howdy world")
+num = int(float(input("enter a num: ")))
+print(num)
