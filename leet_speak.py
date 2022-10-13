@@ -4,7 +4,7 @@
 #
 # Name:         DHRUV HALDERIA
 # Section:      503
-# Assignment:   LAB 7.25
+# Assignment:   LAB 7.26
 # Date:         12 October 2022
 #
 #gets the text into the program
