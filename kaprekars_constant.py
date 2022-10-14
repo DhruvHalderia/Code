@@ -4,20 +4,21 @@
 #
 # Name:         DHRUV HALDERIA
 # Section:      503
-# Assignment:   LAB 7.27
+# Assignment:   LAB 7.28
 # Date:         13 October 2022
 #
 #
 # got number in 
 num = input("Enter a four-digit integer: ")
 origNum = int(num)
-if len(num) == 3:
-    num += "0"
+while len(num) != 4:
+    num+= "0"
 # this the the iterations variable
 iterations  = 0
 list = []
 #this will get the iterations till 6174
-while num != "6174":
+print(origNum, end= " > ")
+while num != "6174" and num != "0000":
     list = []
     for i in range(len(num)):
         list.append(num[i:i+1])
@@ -30,4 +31,10 @@ while num != "6174":
         aNum += listA[i]
     num = f"{int(rNum) - int(aNum)}"
     iterations +=1
-print(f"{origNum} reaches 6174 via Kaprekar's routine in {iterations} iterations")
+    if int(num) != 6174 and int(num) != 0:
+        print(num, end= " > ")
+    else:
+        print(num)
+    while len(num) != 4:
+        num+= "0"
+print(f"{origNum} reaches {int(num)} via Kaprekar's routine in {iterations} iterations")
