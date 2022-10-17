@@ -1,2 +1,1 @@
-num = int(float(input("enter a num: ")))
-print(num)
+print("howdy world")
