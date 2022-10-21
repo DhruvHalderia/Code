@@ -1,2 +1,3 @@
-num = int(float(input("enter a num: ")))
-print(num)
+mylist = [1, 2, 3, 4, 5]
+mylist += [0]
+print(mylist)
