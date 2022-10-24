@@ -9,15 +9,13 @@
 #
 #
 import math
+
 def parta(radiusS, radiusH):
     if radiusH > radiusS:
         return 0
     v = (4*math.pi/3)*((radiusS**2)-(radiusH**2))**(3/2)
     return v
-
-
-
-
+ 
 #making partb below
 def partb(n):
     #making a num list to store all the numbers in 
@@ -38,7 +36,6 @@ def partb(n):
                 numList = []
     return False
 
-
 # i made partc on the bottom
 def partc(border, name, place, mail):
     card =""
@@ -55,7 +52,6 @@ def partc(border, name, place, mail):
     card+=border+"".center(len(longString)+5,border)
     return card
 
-
 #below i am making part d
 def partd(numList):
     ansList = []
@@ -67,7 +63,6 @@ def partd(numList):
         ansList.append(numList[len(numList)//2])
     ansList.append(numList[-1])
     return tuple(ansList)
-
 
 #below i am making part e
 def parte(times, distance):
@@ -84,7 +79,6 @@ def partf(a):
             if a[i] + a[j] == 2026:
                 ans = a[i] * a[j]
     return ans
-
 
 '''
 #testing the parts with test cases
