@@ -17,10 +17,11 @@
         #if the user's input has four digits
         #if the user's input has three digits
         
-
+'''
 if len(time) == 5:
     #this bottom statement will get 4 numbers with the right spacing and then it splices the time string for that number or character and then goes through the list for that key value and prints each individual line by itself
         print(numbers[time[0:1]][i],""+numbers[time[1:2]][i],""+numbers[time[2:3]][i],""+numbers[time[3:4]][i],""+numbers[time[4:5]][i],"") #this is for the four digit number 
     else:
     #this bottom statement will get 4 numbers with the right spacing and then it splices the time string for that number or character and then goes through the list for that key value and prints each individual line by itself
         print(numbers[time[0:1]][i],""+numbers[time[1:2]][i],""+numbers[time[2:3]][i],""+numbers[time[3:4]][i],"") #this if for the 3 digit number 
+        '''
