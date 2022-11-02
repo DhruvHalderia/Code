@@ -2,22 +2,24 @@
 #   "Aggies do not lie, cheat, or steal, or tolerate those who do."
 #   "I have not given or received any unauthorized aid on this assignment."
 #
-# Name:         YOUR NAME
-# Section:      YOUR SECTION NUMBER
-# Assignment:   THE ASSIGNMENT NUMBER (e.g. Lab 1b-2)
-# Date:         DAY MONTH YEAR
+# Names:        Tilman Strickland
+#               Dhruv Halderia
+#               Logan Stringer
+# Section:      503
+# Assignment:   10.13 
+# Date:         11/02/2022
 
-def interpolate(x1, x2, y1, y2, x):
+def interpolate(x1, y1, x2, y2, x):
     '''This function interpolates between two points'''
     slope = (y2 - y1) / (x2 - x1)
     y = slope * (x - x1) + y1
-    return slope
+    return y
 
 ##### 5 MPa Data #####
 # temperature in degrees C
 temp5 = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260]
 # specific volume in m^3/kg
-v5 = [0.0009977, 0.0009996, 0.0010057, 0.0010194, 0.0010267, 0.001041, 
+v5 = [0.0009977, 0.0009996, 0.0010057, 0.0010149, 0.0010267, 0.001041, 
       0.0010576, 0.0010769, 0.0010988, 0.001124, 0.0011531, 0.0011868, 
       0.0012268, 0.0012755]
 # internal energy in kJ/kg
@@ -49,7 +51,7 @@ s10 = [0.0003, 0.2943, 0.5685, 0.826, 1.0691, 1.2996, 1.5191, 1.7293,
 
 ##### do calculations #####
 # get temperature and pressure from user
-temp = int(input("Enter a temperature between 0 and 260 deg C: "))
+temp = float(input("Enter a temperature between 0 and 260 deg C: "))
 pres = float(input("Enter a pressure between 5 and 10 MPa: "))
 
 # loop over temperatures in list to find the two that bound
@@ -61,7 +63,7 @@ for i in range(len(temp5)):
         hl, hh = h5[i], h10[i]
         sl, sh = s5[i], s10[i]
         break
-    elif temp == temp5[i + 1]:  # if equal to upper bound
+    elif temp == temp5[i + 1] and pres != 10:  # if equal to upper bound
         ul, uh = v5[i + 1], v10[i + 1]
         vl, vh = u5[i + 1], u10[i + 1]
         hl, hh = h5[i + 1], h10[i + 1]
@@ -85,8 +87,8 @@ h = interpolate(5, hl, 10, hh, pres)
 s = interpolate(5, sl, 10, sh, pres)
 
 ##### print results #####
-print(f'Properties at {pres} deg C and {temp} MPa are:')
+print(f'Properties at {temp} deg C and {pres} MPa are:')
 print(f'Specific volume (m^3/kg): {v:.7f}')
 print(f'Specific internal energy (kJ/kg): {u:.2f}')
 print(f'Specific enthalpy (kJ/kg): {h:.2f}')
-print(f'Specific entropy (kJ/kgK): {s:.3f}')
+print(f'Specific entropy (kJ/kgK): {s:.4f}')
