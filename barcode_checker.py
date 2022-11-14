@@ -4,7 +4,7 @@
 #
 # Name:         DHRUV HALDERIA
 # Section:      503
-# Assignment:   LAB 6.15
+# Assignment:   LAB 11.11
 # Date:         11/13/22
 #
 def valid(numList):
