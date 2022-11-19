@@ -20,7 +20,7 @@ def checker(a):
         return {}
     return {}
         
-#I get the file name here
+#get the file name here
 user = input('Enter the name of the file: ')
 myfile = open(user, 'r')
 endFile = open('valid_passports.txt', 'w')
@@ -28,16 +28,15 @@ mylist = []
 mystr = ''
 totalPass = 0
 endLine = ''
-#I read each file line and put it into a list to call the function checker
+#read each file line and put it into a list to call the function checker
 for line in myfile.readlines():
     endLine += line
     if line.strip() == '':
         templist = mystr.split(' ')
         tempDictionary = checker(templist[0:-1])
         if(len(tempDictionary) >0):
-#i check in the for loop up above
+#check in the for loop up above
             totalPass +=1
-            #tempDictionary.pop('')
             endFile.write(endLine)
         mystr = ''
         endLine = ''
@@ -45,9 +44,8 @@ for line in myfile.readlines():
 templist = mystr.split(' ')
 tempDictionary = checker(templist[0:-1])
 if(len(tempDictionary) >0):
-# i check the last element here
+#check the last element here
     totalPass +=1
-    #tempDictionary.pop('')
     endFile.write(endLine)
 print(f'There are {totalPass} valid passports')
 endFile.close()
