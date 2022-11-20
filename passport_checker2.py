@@ -11,11 +11,23 @@
 def checker(a):
     mydiction = {}
     for i in a:
-        if i !=' ':
+        if i !='':
             mydiction[i[:3]]= i[4:]
     try:
         if(len(mydiction) >= 7 and mydiction['ecl'] != 'None' and mydiction['pid'] != 'None' and mydiction['byr'] != 'None' and mydiction['hgt'] != 'None' and mydiction['iyr'] != 'None' and mydiction['eyr'] != 'None' and mydiction['cid'] != 'None'):
-            return mydiction
+            if(int(mydiction['byr']) >= 1920 and int(mydiction['byr']) <= 2005) and (int(mydiction['iyr']) >= 2012 and int(mydiction['iyr']) <= 2022) and (mydiction['ecl'] == 'amb' or mydiction['ecl'] == 'blu' or mydiction['ecl'] == 'brn' or mydiction['ecl'] == 'gry' or mydiction['ecl'] == 'grn' or mydiction['ecl'] == 'hzl' or mydiction['ecl'] == 'oth') and (int(mydiction['eyr']) >=2022 and int(mydiction['eyr']) <=2032 ):
+                metric = mydiction['hgt'][-2:]
+                num = int(mydiction['hgt'][:-2])
+                if (metric == 'in' and num >= 59 and num <= 76):
+                    if(len(mydiction['pid']) == 9):
+                        newCid = mydiction['cid'].lstrip('0')
+                        if(len(newCid) == 3):
+                            return mydiction
+                elif(metric == 'cm' and num>= 150 and num<= 193):
+                    if(len(mydiction['pid']) == 9):
+                        newCid = mydiction['cid'].lstrip('0')
+                        if(len(newCid) == 3):
+                            return mydiction
     except:
         return {}
     return {}
@@ -23,7 +35,7 @@ def checker(a):
 #get the file name here
 user = input('Enter the name of the file: ')
 myfile = open(user, 'r')
-endFile = open('valid_passports.txt', 'w')
+endFile = open('valid_passports2.txt', 'w')
 mylist = []
 mystr = ''
 totalPass = 0
@@ -50,3 +62,4 @@ if(len(tempDictionary) >0):
 print(f'There are {totalPass} valid passports')
 endFile.close()
 myfile.close()
+
