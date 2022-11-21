@@ -1,3 +1,3 @@
-from math import sqrt 
-a = sqrt(25)
+from math import sqrt as sr
+a = sr(25)
 print(a)
