@@ -6,28 +6,44 @@
 #               Dhruv Halderia
 #               Logan Stringer
 # Section:      503
-# Assignment:   12.14
-# Date:         111/23/2022
+# Assignment:   12.15
+# Date:         11/23/2022
 # As a team, we have gone through all required sections of the  
 # tutorial, and each team member understands the material 
 import matplotlib.pyplot as plt
 import numpy as np
 
-plot1 = plt.subplot2grid((2, 2), (0, 0))
+# im making the graphs down below using different figures
+#below is figure 1 
+plt.figure(1)
 x = np.linspace(-2, 2)
 y = (1/4)*x**2
-plot1.set_title("Parabola plots with varying focal length")
-plot1.set_xlabel('x')
-plot1.set_ylabel('y')
-plot1.plot(x,y/2, 'r',label = "f=2",  linewidth=2)
-plot1.plot(x,y/6, 'b', label = "f=6", linewidth=6)
-plot1.legend(loc='lower left')
+plt.plot(x,y/2,'r', label = 'f = 2', linewidth = 2)
+plt.plot(x,y/6,'b', label = 'f = 6', linewidth = 6 )
+plt.legend()
+plt.xlabel("x")
+plt.ylabel("y")
 
+#below is figure 2
+plt.figure(2)
+x1 = np.linspace(-4, 4,25)
+y1 = 2*x1**3 + 3*x1**2 -11*x1 - 6
+plt.scatter(x1,y1,color = 'yellow', marker = '*', edgecolors='black')
+plt.xlabel('x values')
+plt.ylabel('y values')
 
-plot2 = plt.subplot2grid((2,2), (0, 0))
-x= np.linspace(-4,4,25)
-y = 2*x**3 + 3*x**2 - 11*x -6
-plt.scatter(x, y,color="red")
-plt.show()
-
+#below is figure 3
+plt.figure(3)
+fig, (ax1, ax2) = plt.subplots(2, sharex = True)
+x2 = np.linspace(-2*np.pi, 2*np.pi)
+y2 = np.sin(x2)
+y3 = np.cos(x2)
+ax1.plot(x2, y3, 'r', label = 'cos(x)')
+ax2.plot(x2, y2,'grey', label = 'sin(x)')
+ax1.legend(loc = 'lower right')
+ax2.legend()
+ax1.set_ylabel('y = cos(x)')
+ax2.set_ylabel('y = sin(x)')
+ax1.grid()
+ax2.grid()
 plt.show()
