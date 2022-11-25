@@ -4,7 +4,7 @@
 #
 # Name:         DHRUV HALDERIA
 # Section:      503
-# Assignment:   LAB 10.14
+# Assignment:   LAB 12.16
 # Date:         24 November 2022
 # 
 #below i have imported numpy and matplotlib
