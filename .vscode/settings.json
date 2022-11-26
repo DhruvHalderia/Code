@@ -3,7 +3,8 @@
         "arange",
         "barcodes",
         "matplotlib",
-        "pyplot"
+        "pyplot",
+        "yticks"
     ],
     "python.analysis.typeCheckingMode": "off"
 }
