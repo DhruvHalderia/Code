@@ -9,7 +9,7 @@
 # Assignment:   Lab 13 Team
 # Date:         11/30/2022
 import random 
-import turtle
+import turtle as t
 def makeBoard():
     """This makes the initial board for the user using bingo rules and returns the board"""
     top = [' B'," I"," N"," G"," O"]
@@ -188,9 +188,21 @@ def checkHorizontal(board):
             return True
     return False
 def drawBingo():
+    #we use turtle to draw the word bingo when the user gets a bingo
+    t.penup()
+    t.forward(-400)
+    t.pendown()
+    t.pensize(10)
+    t.color("Red")
+    t.circle(65,180)
+    t.left(90)
+    t.forward(130*2)
+    t.left(90)
+    t.circle(65,180)
     print()
 
-getInstructions()
+drawBingo()
+'''getInstructions()
 outputFile = open("Bingo_Game.txt",'w' )
 gameBoard = makeBoard()
 userInput = getInput()
@@ -211,4 +223,4 @@ while userInput == 1 or userInput == 2:
     else:
         userInput = getInput(2)
 print("Thanks for playing!")
-outputFile.close()
+outputFile.close()'''
