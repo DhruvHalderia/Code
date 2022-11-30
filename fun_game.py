@@ -129,6 +129,7 @@ def checkBoard(board, column, number):
     '''This checks the board to see if the number rolled is on the players board'''
     fillerNum = 0
     listRow = 0
+    # the for loop check each number in the board and sees if it the number drawed, if it is it'll change it to 'xx'
     for i in board:
         for b in i:
             try:
@@ -155,6 +156,7 @@ def checkBingo(board):
 
 def checkDiagonal(board):
     '''This will check the diagonal to see if a diagonal bingo is reached'''
+    # the two if statements check if there are 'xx' on those positions, if they are, the function returns true
     if(board[1][0] =='xx' and board[2][1] =='xx' and board[3][2] =='xx' and board[4][3] =='xx' and board[5][4] =='xx'):
         return True
     if(board[1][4] =='xx' and board[2][3] =='xx' and board[3][2] =='xx' and board[4][1] =='xx' and board[5][0] =='xx'):
@@ -163,6 +165,7 @@ def checkDiagonal(board):
 
 def checkVertical(board):
     '''This will check if a vertical bingo is hit'''
+    #the for loop will check the columns to see if they are all "xx", if they are the function will return true
     for i in board:
         counter = 0
         for b in i:
@@ -175,6 +178,7 @@ def checkVertical(board):
 def checkHorizontal(board):
     '''This will check if a horizontal bingo is hit'''
     columnChecker = 0
+    # the bottom for loops check through the row to see if they are all "xx", if they are the function will return true
     for b in range(5):
         columnChecker = 0
         for i in board:
@@ -191,6 +195,7 @@ outputFile = open("Bingo_Game.txt",'w' )
 gameBoard = makeBoard()
 userInput = getInput()
 usedNums = []
+#this will continue on asking the user to play until they stop or they win with bingo
 while userInput == 1 or userInput == 2: 
     if userInput == 1:
         gameBoard = getRandomNumbers(gameBoard)
