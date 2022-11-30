@@ -7,14 +7,15 @@
 #               Logan Stringer
 # Section:      503
 # Assignment:   Lab 13 Team
-# Date:         11/27/2022
+# Date:         11/30/2022
 import random 
 import turtle
 def makeBoard():
-#This makes the initial board for the user
+    """This makes the initial board for the user using bingo rules and returns the board"""
     top = [' B'," I"," N"," G"," O"]
     total = [top]
     allNums = []
+    # The for loop below will make the board with random unique numbers
     for i in range(5):
         row =[]
         for b in range(5):
@@ -51,8 +52,10 @@ def makeBoard():
     return total
 
 def printBoard(x):
+    '''This will print the game board for the player to see'''
     global outputFile
     newString = ''
+#the for loops will print out every value on the same line and then add a newline when there is a new row introduced
     for i in x:
         for b in i:
             print(b, end=' ')
@@ -63,10 +66,12 @@ def printBoard(x):
     print()
 
 def getRandomNumbers(board):
+    '''This gets random rolls from the "pile" and then it calls a function to see if the number is in the board'''
     global usedNums
     global outputFile
     positions = {0:"B", 1: "I", 2: "N", 3:"G", 4:"O"}
     posNum = random.randint(0,4)
+    # the if statements down below are used to get random numbers but with the global variable usedNums, they will never repeat a number
     if posNum== 0:
         randNumRolled = random.randint(1,15)
         while randNumRolled in usedNums:
@@ -95,6 +100,8 @@ def getRandomNumbers(board):
     return newBoard
 
 def getInput(num = 1):
+    '''This gets the input from the user and returns a value to for the variable userInput'''
+    # the go variable lets the code know to continue the code or keep repeating itself and the if loop gives two different sets of options
     go = False
     if num ==1:
         while not go:
@@ -119,6 +126,7 @@ def getInput(num = 1):
     return userNum
 
 def checkBoard(board, column, number):
+    '''This checks the board to see if the number rolled is on the players board'''
     fillerNum = 0
     listRow = 0
     for i in board:
@@ -132,9 +140,11 @@ def checkBoard(board, column, number):
     return board
 
 def getInstructions():
+    '''This prints the instructions for player'''
     print("------Welcome to Bingo------\n--------Instructions--------\n----You get a free space----\n---Try to get 5 in a row----\n--Rows can be horizontal,---\n---diagonal, and vertical---\n--And the max number is 75--\n---file records all rolls---\n-----------Enjoy!-----------")
 
 def checkBingo(board):
+    '''This will call three other functions and if any of them return true then this will return true'''
     if(checkDiagonal(board)):
         return True
     if (checkVertical(board)):
@@ -144,6 +154,7 @@ def checkBingo(board):
     return False
 
 def checkDiagonal(board):
+    '''This will check the diagonal to see if a diagonal bingo is reached'''
     if(board[1][0] =='xx' and board[2][1] =='xx' and board[3][2] =='xx' and board[4][3] =='xx' and board[5][4] =='xx'):
         return True
     if(board[1][4] =='xx' and board[2][3] =='xx' and board[3][2] =='xx' and board[4][1] =='xx' and board[5][0] =='xx'):
@@ -151,6 +162,7 @@ def checkDiagonal(board):
     return False
 
 def checkVertical(board):
+    '''This will check if a vertical bingo is hit'''
     for i in board:
         counter = 0
         for b in i:
@@ -161,6 +173,7 @@ def checkVertical(board):
     return False
 
 def checkHorizontal(board):
+    '''This will check if a horizontal bingo is hit'''
     columnChecker = 0
     for b in range(5):
         columnChecker = 0
@@ -172,8 +185,6 @@ def checkHorizontal(board):
     return False
 def drawBingo():
     print()
-
-
 
 getInstructions()
 outputFile = open("Bingo_Game.txt",'w' )
